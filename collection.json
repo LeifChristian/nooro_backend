@@ -1,0 +1,99 @@
+{
+    "info": {
+      "name": "Todo List API",
+      "description": "API endpoints for the Todo List application",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get All Tasks",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/tasks",
+            "host": ["{{baseUrl}}"],
+            "path": ["tasks"]
+          }
+        }
+      },
+      {
+        "name": "Create Task",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"title\": \"Complete the todo app\",\n    \"color\": \"blue\"\n}"
+          },
+          "url": {
+            "raw": "{{baseUrl}}/tasks",
+            "host": ["{{baseUrl}}"],
+            "path": ["tasks"]
+          }
+        }
+      },
+      {
+        "name": "Update Task",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"title\": \"Updated task title\",\n    \"color\": \"green\"\n}"
+          },
+          "url": {
+            "raw": "{{baseUrl}}/tasks/1",
+            "host": ["{{baseUrl}}"],
+            "path": ["tasks", "1"]
+          }
+        }
+      },
+      {
+        "name": "Toggle Task Completion",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/tasks/1/toggle",
+            "host": ["{{baseUrl}}"],
+            "path": ["tasks", "1", "toggle"]
+          }
+        }
+      },
+      {
+        "name": "Delete Task",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/tasks/1",
+            "host": ["{{baseUrl}}"],
+            "path": ["tasks", "1"]
+          }
+        }
+      }
+    ],
+    "variable": [
+      {
+        "key": "baseUrl",
+        "value": "http://localhost:3001",
+        "type": "string"
+      }
+    ]
+  }
